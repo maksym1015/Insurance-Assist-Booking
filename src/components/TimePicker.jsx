@@ -1,17 +1,5 @@
 import { useCallback, useState } from "react";
 
-// const times = [
-//   "1:00AM",
-//   "1:30AM",
-//   "2:00AM",
-//   "2:30AM",
-//   "3:00AM",
-//   "3:30AM",
-//   "4:00AM",
-//   "4:30AM",
-//   "5:00AM",
-// ];
-
 const TimeSpot = ({ id, target, handleSelectSpot, isActive, confirmClick }) => {
   const handleClick = () => {
     confirmClick();
@@ -32,7 +20,10 @@ const TimeSpot = ({ id, target, handleSelectSpot, isActive, confirmClick }) => {
         }
         aria-describedby='tooltip-2349a'
         type='button'
-        onClick={useCallback(() => handleSelectSpot(id), [id])}
+        onClick={useCallback(
+          () => handleSelectSpot(id),
+          [id, handleSelectSpot]
+        )}
       >
         <div
           className={

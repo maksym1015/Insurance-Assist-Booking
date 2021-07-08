@@ -1,15 +1,31 @@
-import Layout from "./Layout";
+import { useState } from "react";
+import BaseLayout from "../Layout/Base";
+import Container from "../Layout/Container";
 import HeroSection from "./HeroSection";
-import ConfrimSection from "./ConfrimSection";
-import CalendarSection from "./CalendarSection";
+import Booking from "./Booking";
+import Confirmation from "./Confirmation";
+import { timeSlots } from "../fakeData";
 
 function App() {
+  const [confimed, setConfirm] = useState(false);
+  const handleConfirm = () => {
+    setConfirm(true);
+  };
   return (
-    <Layout>
+    <BaseLayout>
       <HeroSection />
-      <CalendarSection />
-      <ConfrimSection />
-    </Layout>
+      <Container>
+        {confimed ? (
+          <Confirmation />
+        ) : (
+          <Booking
+            initialDate={new Date()}
+            timeSlots={timeSlots}
+            confirmClick={handleConfirm}
+          />
+        )}
+      </Container>
+    </BaseLayout>
   );
 }
 

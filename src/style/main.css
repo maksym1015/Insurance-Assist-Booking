@@ -1994,6 +1994,7 @@ body > * {
   margin-right: 10px;
   border-radius: 50%;
   box-shadow: 0 0 0 2px #ffffff;
+  background-color: rgb(8 160 124);
 }
 ._Xsb-9TbmH {
   margin-top: 20px;
@@ -3363,13 +3364,13 @@ body > * {
   height: 52px;
   margin-left: 3%;
   color: var(--primary-text-color, #ffffff);
-  background-color: var(--primary-color, rgb(0, 107, 255));
+  background-color: var(--primary-color-level2, rgba(0, 107, 255, 0.7));
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
   transform: translateX(40px);
 }
 ._2OQqVeh6S4:hover,
 ._2OQqVeh6S4:focus {
-  background-color: var(--primary-color-level2, rgba(0, 107, 255, 0.5));
+  background-color: var(--primary-color, rgb(0, 107, 255));
 }
 ._2OQqVeh6S4._1Es3W-g9AL {
   transform: translateX(0);

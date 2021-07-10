@@ -1,4 +1,3 @@
-import { useState } from "react";
 import BaseLayout from "../Layout/Base";
 import Container from "../Layout/Container";
 import HeroSection from "./HeroSection";
@@ -6,24 +5,15 @@ import Booking from "./Booking";
 import Confirmation from "./Confirmation";
 import { timeSlots } from "../fakeData";
 
+import { useSelector } from "../context/store";
+
 function App() {
-  const [confimed, setConfirm] = useState(false);
-  const handleConfirm = () => {
-    setConfirm(true);
-  };
+  const confirmStatus = useSelector((state) => state.confirmStatus);
   return (
     <BaseLayout>
       <HeroSection />
       <Container>
-        {confimed ? (
-          <Confirmation />
-        ) : (
-          <Booking
-            initialDate={new Date()}
-            timeSlots={timeSlots}
-            confirmClick={handleConfirm}
-          />
-        )}
+        {confirmStatus ? <Confirmation /> : <Booking timeSlots={timeSlots} />}
       </Container>
     </BaseLayout>
   );

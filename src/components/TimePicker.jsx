@@ -1,8 +1,18 @@
 import { useCallback, useState } from "react";
+import { useDispatch } from "../context/store";
+import * as Actions from "../context/actions";
 
-const TimeSpot = ({ id, target, handleSelectSpot, isActive, confirmClick }) => {
-  const handleClick = () => {
-    confirmClick();
+const TimeSpot = ({
+  id,
+  target,
+  handleSelectSpot,
+  isActive,
+  onConfirmClick,
+}) => {
+  const dispatch = useDispatch();
+  const handleClick = (item) => {
+    dispatch(Actions.setBookTime(item));
+    onConfirmClick();
   };
   return (
     <div
@@ -43,7 +53,7 @@ const TimeSpot = ({ id, target, handleSelectSpot, isActive, confirmClick }) => {
         }
         aria-describedby='tooltip-f73ef'
         type='button'
-        onClick={handleClick}
+        onClick={() => handleClick(target.slice(0, 5))}
       >
         Confirm
       </button>
@@ -51,17 +61,22 @@ const TimeSpot = ({ id, target, handleSelectSpot, isActive, confirmClick }) => {
   );
 };
 
-const TimePicker = ({ confirmClick, slots }) => {
+const TimePicker = ({ slots }) => {
+  const dispatch = useDispatch();
   const [active, setActive] = useState(0);
-  const times = Object.keys(slots);
-  const timeList = times?.map((item, idx) => (
+  const slotsArr = Object.keys(slots);
+  const handleConfirm = () => {
+    dispatch(Actions.setConfirm(true));
+  };
+
+  const timeList = slotsArr?.map((item, idx) => (
     <TimeSpot
       key={idx}
       target={item}
       handleSelectSpot={setActive}
       id={idx}
       isActive={active === idx}
-      confirmClick={confirmClick}
+      onConfirmClick={handleConfirm}
     />
   ));
   return <>{timeList}</>;

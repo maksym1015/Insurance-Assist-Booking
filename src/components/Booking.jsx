@@ -1,18 +1,25 @@
-import React, { useState } from "react";
 import { Calendar } from "react-rainbow-components";
+import TimezoneSelect from "react-timezone-select";
 import TimePicker from "./TimePicker";
-import TimeZone from "./TimeZone";
 import { formatDate } from "../utils";
 
-const Booking = ({ confirmClick, initialDate, timeSlots }) => {
-  const [date, setDate] = useState(initialDate);
-  const onChange = (date) => {
-    setDate(date);
+import { useDispatch, useSelector } from "../context/store";
+import * as Actions from "../context/actions";
+
+const Booking = ({ timeSlots }) => {
+  const dispatch = useDispatch();
+  const bookDate = useSelector((state) => state.bookDate);
+  const timeZone = useSelector((state) => state.timeZone);
+  const selectDate = (bookDate) => {
+    dispatch(Actions.setBookDate(bookDate));
   };
-  const spotDate = formatDate(date);
+  const selectTimezone = (timeZone) => {
+    dispatch(Actions.setTimezone(timeZone));
+  };
   const selectedDate = Object.keys(timeSlots).filter(
-    (item) => item === spotDate
+    (item) => item === formatDate(bookDate)
   );
+
   return (
     <div className='_1Bm6brdqaB _1qz0a4uwN4'>
       <div
@@ -26,9 +33,21 @@ const Booking = ({ confirmClick, initialDate, timeSlots }) => {
             className='_2WKdni3y14 _2wzWP0QicO _1nJXzV3agT'
           >
             <div className='calendar k1wAD0GFi1'>
-              <Calendar id='calendar-1' value={date} onChange={onChange} />
+              <Calendar
+                id='calendar-1'
+                value={bookDate}
+                onChange={selectDate}
+                minDate={new Date()}
+              />
             </div>
-            <TimeZone />
+            <div className='timezone'>
+              <div className='_3vUmo3_KW8'>Select a Timezone</div>
+              <TimezoneSelect
+                value={timeZone}
+                onChange={selectTimezone}
+                labelStyle='altName'
+              />
+            </div>
           </div>
           <div
             data-component='spotpicker-times'
@@ -49,10 +68,7 @@ const Booking = ({ confirmClick, initialDate, timeSlots }) => {
                 Object.keys(timeSlots[selectedDate]).length === 0 ? (
                   <strong>No Time Slots</strong>
                 ) : (
-                  <TimePicker
-                    confirmClick={confirmClick}
-                    slots={timeSlots[selectedDate]}
-                  />
+                  <TimePicker slots={timeSlots[selectedDate]} />
                 )}
               </div>
             </div>

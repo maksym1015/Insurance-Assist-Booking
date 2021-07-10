@@ -1,4 +1,10 @@
+import { useSelector } from "../context/store";
+import { convertDate, addMinutes } from "../utils";
+
 const ConfrimSection = () => {
+  const bookDate = useSelector((state) => state.bookDate);
+  const bookTime = useSelector((state) => state.bookTime);
+  const timeZone = useSelector((state) => state.timeZone);
   return (
     <div className='_1Bm6brdqaB _1qz0a4uwN4'>
       <div className='_2SW8ZavgiT'>
@@ -25,7 +31,11 @@ const ConfrimSection = () => {
                 data-id='details-highlighted-item-icon'
                 aria-describedby='tooltip-65349'
               ></span>
-              12:00am - 12:45am, Thursday, July 8, 2021
+              {bookTime +
+                " - " +
+                addMinutes(bookTime, "45") +
+                ", " +
+                convertDate(bookDate)}
             </div>
             <div className='_3NwaXVjVAL'>
               <span
@@ -33,7 +43,7 @@ const ConfrimSection = () => {
                 data-id='details-item-icon'
                 aria-describedby='tooltip-c61d2'
               ></span>
-              Pacific Time - US &amp; Canada
+              {timeZone?.altName + " - " + timeZone?.value}
             </div>
           </div>
           <div className='_Xsb-9TbmH'>

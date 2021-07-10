@@ -1812,10 +1812,7 @@ body > * {
   min-height: 550px;
   transition: all 0.22s ease-out;
 }
-.iSDZ5t7E7z._2fk7mvvpgw:not(._2tMJADdXKo)._2hssQHj_5V {
-  min-width: 600px;
-  max-width: 876px;
-}
+
 .iSDZ5t7E7z._2tMJADdXKo._2hssQHj_5V {
   max-width: 402px;
 }
@@ -3496,7 +3493,7 @@ body > * {
 ._1WAB_u6tgy._1K3AETiM0_ {
   display: flex;
   flex-direction: column;
-  height: 65%;
+  height: 300px;
 }
 ._1WAB_u6tgy._19GgkHzXLz {
   width: 40%;
@@ -3568,9 +3565,6 @@ body > * {
   padding-top: 28px;
 }
 
-._30uoV3njfD.b1P7SFgot4._1n7iwH3DQJ {
-  min-width: 585px;
-}
 ._2jmGh1HtJv {
   width: 100%;
 }

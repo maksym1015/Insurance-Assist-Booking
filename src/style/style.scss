@@ -57,12 +57,34 @@ $breakpoints: (
     left: 50%;
   }
 }
+
 .nav-menu-link {
   @include mq("tablet-wide", max) {
     @include menuEffect(#017aff, #f5faff);
     @include menuHover1();
   }
 }
+
+._2jmGh1HtJv._--8H0pY0pn {
+  @include mq("tablet-small", max) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+._1WAB_u6tgy._19GgkHzXLz {
+  @include mq("tablet-small", max) {
+    width: 50%;
+  }
+  @include mq("phone-wide", max) {
+    width: 70%;
+  }
+}
+.timezone {
+  font-family: "Space Grotesk", sans-serif;
+  padding: 0 23px;
+}
+
 // Hamburger Button
 .hamburger {
   padding: 0;

@@ -7,10 +7,14 @@ const result = dtf
   .formatToParts(date)
   .find((part) => part.type === "timeZoneName").value;
 
+const tz = {
+  altName: result,
+};
+
 const initialState = {
   bookDate: date,
   bookTime: "",
-  timeZone: result,
+  timeZone: tz,
   confirmStatus: false,
 };
 

@@ -1,8 +1,8 @@
+import { useEffect } from "react";
 import { Calendar } from "react-rainbow-components";
 import TimezoneSelect from "react-timezone-select";
 import TimePicker from "./TimePicker";
 import { formatDate } from "../utils";
-
 import { useDispatch, useSelector } from "../context/store";
 import * as Actions from "../context/actions";
 
@@ -19,7 +19,11 @@ const Booking = ({ timeSlots }) => {
   const selectedDate = Object.keys(timeSlots).filter(
     (item) => item === formatDate(bookDate)
   );
-
+  const nextYear = new Date().getFullYear() + 1;
+  useEffect(() => {
+    document.getElementsByClassName("css-1wa3eu0-placeholder")[0].innerHTML =
+      timeZone.altName;
+  }, []);
   return (
     <div className='_1Bm6brdqaB _1qz0a4uwN4'>
       <div
@@ -38,6 +42,7 @@ const Booking = ({ timeSlots }) => {
                 value={bookDate}
                 onChange={selectDate}
                 minDate={new Date()}
+                maxDate={new Date(nextYear, 11, 31)}
               />
             </div>
             <div className='timezone'>

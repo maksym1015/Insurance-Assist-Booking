@@ -43,7 +43,7 @@ const ConfrimSection = () => {
                 data-id='details-item-icon'
                 aria-describedby='tooltip-c61d2'
               ></span>
-              {timeZone?.altName + " - " + timeZone?.value}
+              {timeZone?.altName}
             </div>
           </div>
           <div className='_Xsb-9TbmH'>

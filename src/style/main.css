@@ -6366,7 +6366,6 @@ body {
 
 h1 {
   margin-top: 0px;
-  margin-bottom: 24px;
   font-family: "Space Grotesk", sans-serif;
   font-size: 40px;
   line-height: 44px;
@@ -6518,7 +6517,7 @@ figcaption {
 }
 
 .section.bg-primary-3 {
-  padding-top: 70px;
+  padding-top: 20px;
   padding-bottom: 20px;
   background-color: #fff;
 }
@@ -7182,27 +7181,6 @@ figcaption {
   height: 96px;
   margin-bottom: 12px;
   border-radius: 8px;
-}
-
-.display-heading-2 {
-  margin-bottom: 24px;
-  font-family: "Space Grotesk", sans-serif;
-  color: #0d3f5e;
-  font-size: 62px;
-  line-height: 70px;
-  font-weight: 700;
-}
-
-.display-heading-2.section-title {
-  margin-bottom: 24px;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-}
-
-.display-heading-2.metric-heading {
-  margin-bottom: 12px;
 }
 
 .large-text {
@@ -12359,20 +12337,6 @@ figcaption {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .display-heading-2 {
-    margin-bottom: 18px;
-    font-size: 33px;
-    line-height: 35px;
-  }
-
-  .display-heading-2.section-title {
-    margin-bottom: 12px;
-  }
-
-  .display-heading-2.no-space-bottom {
-    margin-bottom: 0px;
-  }
-
   .large-text {
     font-size: 17px;
   }
@@ -13094,16 +13058,6 @@ figcaption {
     grid-row-gap: 12px;
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
-  }
-
-  .display-heading-2 {
-    margin-bottom: 18px;
-    font-size: 30px;
-    line-height: 36px;
-  }
-
-  .display-heading-2.animate-in-first {
-    font-size: 30px;
   }
 
   .large-text {

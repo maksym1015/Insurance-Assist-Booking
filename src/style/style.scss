@@ -87,6 +87,12 @@ $breakpoints: (
 .fwtx {
   font-family: Arial, Helvetica, sans-serif !important;
 }
+.css-1wa3eu0-placeholder {
+  white-space: pre;
+  @include mq("phone-wide", max) {
+    font-size: 14px;
+  }
+}
 // Hamburger Button
 .hamburger {
   padding: 0;

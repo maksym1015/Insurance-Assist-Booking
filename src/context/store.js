@@ -2,13 +2,8 @@ import { createContext, useContext, useReducer } from "react";
 import { reducer } from "./reducer";
 
 const date = new Date();
-const dtf = Intl.DateTimeFormat(undefined, { timeZoneName: "long" });
-const result = dtf
-  .formatToParts(date)
-  .find((part) => part.type === "timeZoneName").value;
-
 const tz = {
-  altName: result,
+  altName: date.toTimeString().slice(9),
 };
 
 const initialState = {

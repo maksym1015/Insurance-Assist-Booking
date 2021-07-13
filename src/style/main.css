@@ -6516,20 +6516,6 @@ figcaption {
   background-color: #141414;
 }
 
-.section.bg-primary-3 {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #fff;
-}
-
-.section.bg-primary-3.no-space-bottom {
-  padding-bottom: 0px;
-}
-
-.section.bg-primary-3.hide {
-  display: none;
-}
-
 .section.bg-gray-1 {
   background-color: #24da78;
 }
